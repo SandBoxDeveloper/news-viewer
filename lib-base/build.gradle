@@ -1,0 +1,13 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+
+    implementation project(':lib-model')
+    implementation project(':lib-core')
+    implementation project(':lib-ui-system')
+
+    /* Image Loading - Glide */
+    implementation ImageLoadingDependencies.glide
+
+    testImplementation project(':lib-test-utils')
+}

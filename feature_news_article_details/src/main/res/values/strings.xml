@@ -1,0 +1,4 @@
+<resources>
+    <string name="news_article_details_content_description">news article details content description</string>
+    <string name="no_data_available_text">There is no offline data available</string>
+</resources>

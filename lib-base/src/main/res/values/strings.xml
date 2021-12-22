@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- General -->
+    <string name="content_description_case_study_image">case study image</string>
+    <string name="request_failed_message">sorry, request failed.</string>
+
+</resources>

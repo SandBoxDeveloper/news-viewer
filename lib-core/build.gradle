@@ -1,0 +1,24 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+
+    implementation AndroidXDependencies.coreKtx
+    implementation AndroidXDependencies.appcompat
+    implementation MaterialDesignDependencies.materialDesign
+
+    /* Navigation */
+    implementation AndroidXDependencies.navigation
+    implementation AndroidXDependencies.navigationUi
+
+    /* HILT */
+    api HiltDependencies.hiltAndroid
+    kapt HiltDependencies.hiltAndroidCompiler
+
+    /* Coroutines */
+    api KotlinDependencies.coroutines
+    api KotlinDependencies.coroutinesAndroid
+
+    /* Junit */
+    implementation AndroidXTestDependencies.junitKtx
+
+}

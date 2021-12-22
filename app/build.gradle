@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/common-android.gradle"
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+
+    defaultConfig {
+        applicationId BuildConfigVersions.APPLICATION_ID
+        versionCode BuildConfigVersions.VERSION_CODE
+        versionName BuildConfigVersions.VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', "\"https://news-api-ktor-server.herokuapp.com/article/\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    /* Libraries */
+    implementation project(':lib-model')
+    implementation project(':lib-network')
+    implementation project(':lib-repository')
+    implementation project(':lib-base')
+    implementation project(':lib-database')
+
+    /* Features */
+    implementation project(':feature_news_list')
+    implementation project(':feature_news_article_details')
+
+    /* Navigation */
+    implementation AndroidXDependencies.navigation
+    implementation AndroidXDependencies.navigationUi
+
+    /* HILT */
+    implementation HiltDependencies.hiltAndroid
+    kapt HiltDependencies.hiltAndroidCompiler
+
+    /* Room */
+    implementation AndroidXDependencies.roomRuntime
+    kapt AndroidXDependencies.roomCompiler
+    implementation AndroidXDependencies.room
+
+    /* Okhttp and Gson */
+    implementation OkhttpDependencies.okhttp
+    implementation OkhttpDependencies.okhttpInterceptor
+    implementation Gson.gson
+
+    /* Retrofit */
+    implementation RetrofitDependencies.retrofit
+    implementation RetrofitDependencies.retrofitConverterGson
+
+    /* Test Utils */
+    testImplementation project(':lib-test-utils')
+}

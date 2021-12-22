@@ -1,0 +1,33 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+
+android {
+
+    compileSdkVersion BuildConfigVersions.COMPILE_SDK_VERSION
+    buildToolsVersion BuildConfigVersions.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion BuildConfigVersions.MIN_SDK_VERSION
+        targetSdkVersion BuildConfigVersions.TARGET_SDK_VERSION
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}

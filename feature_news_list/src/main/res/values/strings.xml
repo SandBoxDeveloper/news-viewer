@@ -1,0 +1,9 @@
+<resources>
+    <string name="request_button_text">Request</string>
+    <string name="teaser_text_title">Teaser text</string>
+    <string name="news_article_image_content_description">news article content description</string>
+    <string name="no_news_articles_message">Sorry, no news articles available.</string>
+    <string name="snackbar_viewing_offline_mode_text">You\'re in offline mode</string>
+    <string name="snackbar_no_internet_connection_text">No Internet Connection</string>
+    <string name="snackbar_dismiss_text">DISMISS</string>
+</resources>

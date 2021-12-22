@@ -1,0 +1,20 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+
+    implementation project(':lib-model')
+    implementation project(':lib-network')
+    implementation project(':lib-core')
+
+    /* HILT */
+    implementation HiltDependencies.hiltAndroid
+    kapt HiltDependencies.hiltAndroidCompiler
+
+    /* Room */
+    implementation AndroidXDependencies.roomRuntime
+    kapt AndroidXDependencies.roomCompiler
+    implementation AndroidXDependencies.room
+
+    /* Test Utils */
+    testImplementation project(':lib-test-utils')
+}

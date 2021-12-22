@@ -1,0 +1,16 @@
+include ':app'
+
+include ':feature_news_article_details'
+include ':feature_news_list'
+
+include ':lib-database'
+include ':lib-core'
+include ':lib-model'
+include ':lib-network'
+include ':lib-repository'
+include ':lib-base'
+include ':lib-ui-system'
+
+include ':lib-test-utils'
+
+rootProject.name = "News Viewer"

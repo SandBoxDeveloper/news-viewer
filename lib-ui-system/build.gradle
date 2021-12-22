@@ -1,0 +1,7 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+
+    implementation MaterialDesignDependencies.materialDesign
+    implementation AndroidXDependencies.constraintLayout
+}

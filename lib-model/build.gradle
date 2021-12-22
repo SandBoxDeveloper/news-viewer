@@ -1,0 +1,5 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+    testImplementation project(':lib-test-utils')
+}

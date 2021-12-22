@@ -1,0 +1,113 @@
+plugins {
+    id('com.android.application')
+    id('kotlin-android')
+    id('kotlin-kapt')
+    id("dagger.hilt.android.plugin")
+    id('androidx.navigation.safeargs.kotlin')
+    id('kotlin-parcelize')
+    id('com.android.library')
+    id('kotlin-android-extensions')
+}
+
+android {
+    compileSdkVersion BuildConfigVersions.COMPILE_SDK_VERSION
+    buildToolsVersion BuildConfigVersions.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId BuildConfigVersions.APPLICATION_ID
+        minSdkVersion BuildConfigVersions.MIN_SDK_VERSION
+        targetSdkVersion BuildConfigVersions.TARGET_SDK_VERSION
+        versionCode BuildConfigVersions.VERSION_CODE
+        versionName BuildConfigVersions.VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', "\"https://raw.githubusercontent.com/theappbusiness/engineering-challenge/main/endpoints/v2/\""
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation AndroidXDependencies.coreKtx
+    implementation AndroidXDependencies.appcompat
+    implementation MaterialDesignDependencies.materialDesign
+    implementation AndroidXDependencies.constraintLayout
+    implementation AndroidXDependencies.liveData
+    implementation AndroidXDependencies.viewModel
+
+    /* HILT */
+    implementation HiltDependencies.hiltAndroid
+    kapt HiltDependencies.hiltAndroidCompiler
+
+    /* Okhttp and Gson */
+    implementation OkhttpDependencies.okhttp
+    implementation OkhttpDependencies.okhttpInterceptor
+    implementation Gson.gson
+
+    /* Retrofit */
+    implementation RetrofitDependencies.retrofit
+    implementation RetrofitDependencies.retrofitConverterGson
+
+    /* Coroutines */
+    implementation KotlinDependencies.coroutines
+    implementation KotlinDependencies.coroutinesAndroid
+
+    /* Image Loading - Glide */
+    implementation ImageLoadingDependencies.glide
+
+    /* Navigation */
+    implementation AndroidXDependencies.navigation
+    implementation AndroidXDependencies.navigationUi
+
+    /* Room */
+    implementation AndroidXDependencies.roomRuntime
+    kapt AndroidXDependencies.roomCompiler
+    implementation AndroidXDependencies.room
+
+    /* Test - MockK */
+    testImplementation TestDependencies.mockk
+
+    /* Test - Truth */
+    androidTestImplementation TestDependencies.truth
+    testImplementation TestDependencies.truth
+
+    /* Test -Junit */
+    androidTestImplementation TestDependencies.junit
+
+    /* Test - Junit4 */
+    testImplementation TestDependencies.junit
+    testImplementation AndroidXTestDependencies.junitKtx
+    testImplementation AndroidXTestDependencies.coreKtx
+
+    /* Test - Core Testing */
+    testImplementation AndroidXTestDependencies.coreTesting
+
+    /* Test - Coroutines */
+    testImplementation TestDependencies.coroutines
+
+    /* Test - Espresso */
+    androidTestImplementation AndroidXTestDependencies.espresso_core
+}

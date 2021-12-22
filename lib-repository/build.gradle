@@ -1,0 +1,13 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+
+    implementation project(':lib-core')
+
+    /* Retrofit */
+    implementation RetrofitDependencies.retrofit
+    implementation RetrofitDependencies.retrofitConverterGson
+    
+    /* Test Utils */
+    testImplementation project(':lib-test-utils')
+}

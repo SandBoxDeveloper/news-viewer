@@ -1,0 +1,30 @@
+apply from: "$rootDir/common-library.gradle"
+
+dependencies {
+    implementation project(':lib-model')
+
+    implementation AndroidXDependencies.liveData
+
+    /* Test - MockK */
+    api TestDependencies.mockk
+
+    /* Test - Truth */
+    api TestDependencies.truth
+
+    /* Test - Junit4 */
+    api TestDependencies.junit
+    api AndroidXTestDependencies.junitKtx
+    api AndroidXTestDependencies.coreKtx
+
+    /* Test - Core Testing */
+    api AndroidXTestDependencies.coreTesting
+
+    /* Test - Coroutines */
+    api TestDependencies.coroutines
+
+    /* Test - Junit */
+    androidTestImplementation TestDependencies.junit
+
+    /* Test - Espresso */
+    androidTestImplementation AndroidXTestDependencies.espresso_core
+}

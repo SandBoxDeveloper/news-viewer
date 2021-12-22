@@ -1,0 +1,28 @@
+apply from: "$rootDir/common-library.gradle"
+
+android {
+
+    defaultConfig {
+        buildConfigField 'String', 'BASE_URL', "\"https://news-api-ktor-server.herokuapp.com/article/\""
+    }
+}
+
+dependencies {
+
+    implementation project(':lib-model')
+    /* Test Utils */
+    testImplementation project(':lib-test-utils')
+    
+    /* HILT */
+    implementation HiltDependencies.hiltAndroid
+    kapt HiltDependencies.hiltAndroidCompiler
+
+    /* Okhttp and Gson */
+    implementation OkhttpDependencies.okhttp
+    implementation OkhttpDependencies.okhttpInterceptor
+    implementation Gson.gson
+
+    /* Retrofit */
+    implementation RetrofitDependencies.retrofit
+    implementation RetrofitDependencies.retrofitConverterGson
+}
