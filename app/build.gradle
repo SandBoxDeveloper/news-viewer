@@ -30,6 +30,7 @@ dependencies {
     implementation project(':lib-repository')
     implementation project(':lib-base')
     implementation project(':lib-database')
+    implementation project(':lib-core')
 
     /* Features */
     implementation project(':feature_news_list')

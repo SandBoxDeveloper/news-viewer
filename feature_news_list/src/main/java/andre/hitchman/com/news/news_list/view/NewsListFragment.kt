@@ -1,5 +1,6 @@
 package andre.hitchman.com.news.news_list.view
 
+import andre.hitchman.com.news.core.NewsDetailsNavigationRoute
 import andre.hitchman.com.news.news_list.R
 import andre.hitchman.com.news.news_list.databinding.NewsArticlesListFragmentBinding
 import andre.hitchman.com.news.news_list.livedatastate.NewsArticlesListEventState
@@ -14,7 +15,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +28,9 @@ class NewsListFragment : Fragment(), NewsArticleItemClickLister {
 
     @Inject
     lateinit var listAdapter: NewsArticlesAdapter
+
+    @Inject
+    lateinit var detailsNavigationRoute: NewsDetailsNavigationRoute
 
     private var newsArticlesListFragmentBinding: NewsArticlesListFragmentBinding? = null
 
@@ -82,11 +85,7 @@ class NewsListFragment : Fragment(), NewsArticleItemClickLister {
     private fun handleNavigation(state: NewsArticlesListNavigationState?) {
         when (state) {
             is NewsArticlesListNavigationState.NavigateToNewsArticleDetailedView -> {
-                val action =
-                    NewsListFragmentDirections.actionCaseStudiesListToDetailedFragment(
-                        state.newsArticleItemId
-                    )
-                findNavController().navigate(action)
+                detailsNavigationRoute.toDetailsView(state.newsArticleItemId, findNavController())
             }
         }
     }
