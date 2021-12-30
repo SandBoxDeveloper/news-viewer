@@ -24,6 +24,6 @@
         android:layout_height="match_parent"
         android:layout_below="@id/main_activity_toolbar"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/app_navigation" />
+        app:navGraph="@navigation/app_nav_graph" />
 
 </RelativeLayout>
